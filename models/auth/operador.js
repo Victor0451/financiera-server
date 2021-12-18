@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize");
 const db = require("../../db/database");
 
-module.exports = db.sgiSequelize.define(
+module.exports = db.financieraSequelize.define(
   "operador",
   {
     id: {

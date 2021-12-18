@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const operador = require("../../models/sgi/operador");
+const operador = require("../../models/auth/operador");
 const bcrypt = require("bcryptjs");
 const config = require("config");
 const jwt = require("jsonwebtoken");

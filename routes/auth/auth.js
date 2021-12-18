@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const operador = require("../../models/sgi/operador");
+const operador = require("../../models/auth/operador");
 const auth = require("../../middleware/auth");
 const bcrypt = require("bcryptjs");
 const config = require("config");
 const jwt = require("jsonwebtoken");
 
-router.post("/auth", (req, res, next) => {
+router.post("/authenticate", (req, res, next) => {
   const { usuario, contrasena } = req.body;
 
   //Validacion simple

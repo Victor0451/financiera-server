@@ -2,9 +2,9 @@ const Sequelize = require("sequelize");
 const db = {};
 
 
-const sgiSequelize = new Sequelize({
+const financieraSequelize = new Sequelize({
   host: "192.168.1.102",
-  database: "werchow-sgi",
+  database: "financiera",
   username: "vlongo",
   password: "nokia5800",
   dialect: "mysql",
@@ -18,7 +18,7 @@ const sgiSequelize = new Sequelize({
 });
 
 
-db.sgiSequelize = sgiSequelize;
+db.financieraSequelize = financieraSequelize;
 
 db.Sequelize = Sequelize;
 

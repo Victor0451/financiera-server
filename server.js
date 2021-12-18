@@ -16,14 +16,14 @@ const app = express();
 app.use(morgan("dev"));
 
 app.use(cors());
-app.set("port", process.env.PORT || 5002);
+app.set("port", process.env.PORT || 4001);
 
-const options = {
-  key: fs.readFileSync(path.resolve(__dirname, "./clubwerchow.com.key")),
+// const options = {
+//   key: fs.readFileSync(path.resolve(__dirname, "./clubwerchow.com.key")),
 
-  cert: fs.readFileSync(path.resolve(__dirname, "./clubwerchow.com.crt")),
-};
-console.log(options),
+//   cert: fs.readFileSync(path.resolve(__dirname, "./clubwerchow.com.crt")),
+// };
+
   //middlewares
   app.use(bodyparser.json());
 app.use("*", cors());
@@ -31,23 +31,35 @@ app.use("*", cors());
 //Routes
 
 
-//SGI
-app.use("/api/sgi/operador", require("./routes/sgi/operador"));
-app.use("/api/sgi/auth", require("./routes/sgi/auth"));
+//OPERADORES
+app.use("/api/auth/operador", require("./routes/auth/operador"));
+app.use("/api/auth/auth", require("./routes/auth/auth"));
+
+// CLIENTES
+app.use("/api/clientes", require("./routes/sistema/clientes"));
+
+// ZONAS
+app.use("/api/zonas", require("./routes/sistema/zonas"));
+
+// HISTORIAL
+app.use("/api/historialcliente", require("./routes/historial/historial_clientes"));
+
+// CREDITOS
+app.use("/api/creditos", require("./routes/sistema/creditos"));
 
 
 // UPLOADS
-app.use(
-  "/api/archivos/legajovirtual",
-  require("./routes/archivos/LegajoVirtual")
-);
+// app.use(
+//   "/api/archivos/legajovirtual",
+//   require("./routes/archivos/LegajoVirtual")
+// );
 
 
 //Conecting DB
 
-db.sgiSequelize
+db.financieraSequelize
   .authenticate()
-  .then(() => console.log("Database SGI conected..."))
+  .then(() => console.log("Database FINANCIERA conected..."))
   .catch((err) => console.log("error" + err));
 
 
@@ -58,4 +70,4 @@ app.listen(app.get("port"), () => {
   console.log("Server on port", app.get("port"));
 });
 
-https.createServer(options, app).listen("4001");
+//https.createServer(options, app).listen("4001");
