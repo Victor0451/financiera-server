@@ -12,6 +12,24 @@ router.get("/listadocreditos", (req, res) => {
         .catch((err) => res.json(err));
 });
 
+router.get("/existecredito/:id", (req, res) => {
+    creditos
+        .findOne({
+            where: { idcredito: req.params.id }
+        })
+        .then((listado) => res.json(listado))
+        .catch((err) => res.json(err));
+});
+
+router.get("/creditoscliente/:id", (req, res) => {
+    creditos
+        .findAll({
+            where: { idcliente: req.params.id }
+        })
+        .then((listado) => res.json(listado))
+        .catch((err) => res.json(err));
+});
+
 router.get("/listadoplancuotas", (req, res) => {
     planCuotas
         .findAll()
@@ -25,6 +43,42 @@ router.get("/listadoempleados", (req, res) => {
         .then((listado) => res.json(listado))
         .catch((err) => res.json(err));
 });
+
+
+router.post("/nuevocredito", (req, res) => {
+
+    const credito = {
+        idcliente,
+        prestamo,
+        monto_final,
+        monto_cuota,
+        cant_cuota,
+        monto_pagado,
+        anticipo,
+        vendedor,
+        operador,
+        fecha,
+        idzona,
+        estado,
+    } = req.body
+
+    creditos.create(credito)
+        .then((listado) => res.json(listado))
+        .catch((err) => res.json(err));
+
+})
+
+router.delete("/eliminarcredito/:id", (req, res) => {
+
+    creditos.destroy({
+        where: {
+            idcredito: req.params.id
+        }
+    })
+        .then((listado) => { res.json(listado) })
+        .catch((err) => res.json(err));
+
+})
 
 
 

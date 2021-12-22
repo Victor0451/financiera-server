@@ -24,8 +24,8 @@ app.set("port", process.env.PORT || 4001);
 //   cert: fs.readFileSync(path.resolve(__dirname, "./clubwerchow.com.crt")),
 // };
 
-  //middlewares
-  app.use(bodyparser.json());
+//middlewares
+app.use(bodyparser.json());
 app.use("*", cors());
 
 //Routes
@@ -46,6 +46,10 @@ app.use("/api/historialcliente", require("./routes/historial/historial_clientes"
 
 // CREDITOS
 app.use("/api/creditos", require("./routes/sistema/creditos"));
+
+// COBRANZA
+app.use("/api/cobranza", require("./routes/sistema/cobranza"));
+
 
 
 // UPLOADS

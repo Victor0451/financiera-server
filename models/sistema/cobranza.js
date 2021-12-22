@@ -2,9 +2,9 @@ const Sequelize = require("sequelize");
 const db = require("../../db/database");
 
 module.exports = db.financieraSequelize.define(
-    "creditos",
+    "cobranza",
     {
-        idcredito: {
+        idcobranza: {
             type: Sequelize.DataTypes.INTEGER,
             primaryKey: true,
             autoIncrement: true
@@ -14,56 +14,47 @@ module.exports = db.financieraSequelize.define(
             type: Sequelize.DataTypes.INTEGER
         },
 
-        prestamo: {
-            type: Sequelize.DataTypes.FLOAT
-        },
-
-        monto_final: {
-            type: Sequelize.DataTypes.FLOAT
-        },
-
-        monto_cuota: {
-            type: Sequelize.DataTypes.FLOAT
-        },
-
-        cant_cuota: {
+        idcredito: {
             type: Sequelize.DataTypes.INTEGER
         },
-
-        monto_pagado: {
-            type: Sequelize.DataTypes.FLOAT
-        },
-
-
-        anticipo: {
-            type: Sequelize.DataTypes.FLOAT
-        },
-
-        fecha: {
-            type: Sequelize.DataTypes.DATE
-        },
-
-        operador: {
-            type: Sequelize.DataTypes.STRING
-        },
-
-        vendedor: {
-            type: Sequelize.DataTypes.STRING
-        },
-
         idzona: {
             type: Sequelize.DataTypes.INTEGER
         },
+        monto: {
+            type: Sequelize.DataTypes.FLOAT
+        },
+        cuota: {
+            type: Sequelize.DataTypes.INTEGER
+        },
+        fecha: {
+            type: Sequelize.DataTypes.DATE
+        },
+        metodo_pago: {
+            type: Sequelize.DataTypes.STRING
+        },
 
+        descripcion: {
+            type: Sequelize.DataTypes.STRING
+        },
+        caja: {
+            type: Sequelize.DataTypes.STRING
+        },
+        factura: {
+            type: Sequelize.DataTypes.STRING
+        },
         estado: {
             type: Sequelize.DataTypes.TINYINT
         },
+        fecha_anulacion: {
+            type: Sequelize.DataTypes.DATE
+        },
+
     },
     {
         timestamps: false,
         freezeTableName: true
     },
     {
-        tableName: "creditos"
+        tableName: "cobranza"
     }
 );
