@@ -50,6 +50,8 @@ app.use("/api/creditos", require("./routes/sistema/creditos"));
 // COBRANZA
 app.use("/api/cobranza", require("./routes/sistema/cobranza"));
 
+// NOTICIAS
+app.use("/api/noticias", require("./routes/sistema/noticias"));
 
 
 // UPLOADS

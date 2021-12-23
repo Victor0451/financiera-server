@@ -47,6 +47,7 @@ router.post("/nuevocliente", (req, res) => {
         direccion,
         cod_postal,
         barrio,
+        localidad,
         fecha_nacimiento,
         idzona,
         operador,

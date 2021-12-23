@@ -30,6 +30,9 @@ module.exports = db.financieraSequelize.define(
         barrio: {
             type: Sequelize.DataTypes.STRING
         },
+        localidad: {
+            type: Sequelize.DataTypes.STRING
+        },
         fecha_nacimiento: {
             type: Sequelize.DataTypes.STRING
         },
