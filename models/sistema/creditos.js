@@ -34,6 +34,9 @@ module.exports = db.financieraSequelize.define(
             type: Sequelize.DataTypes.FLOAT
         },
 
+        cuotas_pagadas: {
+            type: Sequelize.DataTypes.INTEGER
+        },
 
         anticipo: {
             type: Sequelize.DataTypes.FLOAT

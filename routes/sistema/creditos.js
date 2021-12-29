@@ -68,6 +68,24 @@ router.post("/nuevocredito", (req, res) => {
 
 })
 
+router.put("/puttotales/:id", (req, res) => {
+
+    const datos = {
+        monto_pagado,
+        cuotas_pagadas,
+        estado
+    } = req.body
+
+    creditos.update(
+        datos, {
+        where: { idcredito: req.params.id }
+    })
+        .then((listado) => res.json(listado))
+        .catch((err) => res.json(err));
+
+})
+
+
 router.delete("/eliminarcredito/:id", (req, res) => {
 
     creditos.destroy({

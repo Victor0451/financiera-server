@@ -1,6 +1,6 @@
 {
-  "name": "werchow-api-server",
-  "version": "3.0.0",
+  "name": "financiera-api-server",
+  "version": "0.6.1",
   "description": "",
   "main": "index.js",
   "scripts": {
